@@ -1,0 +1,28 @@
+{
+  "name": "todo_app",
+  "version": "1.0.0",
+  "description": "This is my TODO list to achieve my daily goals.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hritikkhurana10sm/My-Todo-List-App.git"
+  },
+  "keywords": [
+    "Todo",
+    "List",
+    "App"
+  ],
+  "author": "Hritik Khurana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hritikkhurana10sm/My-Todo-List-App/issues"
+  },
+  "homepage": "https://github.com/hritikkhurana10sm/My-Todo-List-App#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
