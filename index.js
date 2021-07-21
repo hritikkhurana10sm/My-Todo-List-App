@@ -1,7 +1,7 @@
 //require express
-const { urlencoded } = require('express');
+
 const express = require('express');
-const port = 8000;
+const port = 800;
 
 //enabling the express
 const app = express();
@@ -17,7 +17,11 @@ app.use(express.static('assets'));
 app.use(express.urlencoded());
 
 //adding middleware here
-app.use('/' , require('./routes/index'));
+app.use('/' , require('./routes/index.js'));
+
+
+const db = require('./config/mongoose');
+// const Todo = require('./models/todo_list');
 
 app.listen(port , function(err){
      if(err){
