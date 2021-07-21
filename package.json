@@ -24,6 +24,7 @@
   "homepage": "https://github.com/hritikkhurana10sm/My-Todo-List-App#readme",
   "dependencies": {
     "ejs": "^3.1.6",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.13.3"
   }
 }
