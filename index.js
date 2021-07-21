@@ -5,6 +5,13 @@ const port = 8000;
 //enabling the express
 const app = express();
 
+//setting up view engine
+app.set('view engine' , 'ejs');
+app.set('views' , './views');
+
+//adding assets
+app.use(express.static('assets'));
+
 //adding middleware here
 app.use('/' , require('./routes/index'));
 

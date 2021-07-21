@@ -1,0 +1,42 @@
+*{
+    margin : 0;
+    padding : 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.grid-cont{
+    display: grid;
+    grid-template-areas: 'heading heading heading heading heading heading'
+                         'text text text text text text'
+                         'category category category date date date'
+                         'butn butn butn butn butn butn'
+                          'task task task task task task';
+    grid-gap: 10px;
+    background-color: rgba(255, 0, 0, 0.048);
+    padding: 4px;
+    width: 70%;
+    margin: auto;
+    margin-top: 5%;
+    text-align: center;
+}
+
+.item1{
+    grid-area: heading;
+}
+.item2{
+    grid-area: text;
+}
+.item3{
+    grid-area: category;
+}
+.item4{
+    grid-area: date;
+}
+.item5{
+    grid-area: butn;
+}
+
+.heading{
+    font-weight: bolder;
+    color: white;
+}
