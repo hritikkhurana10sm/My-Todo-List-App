@@ -11,24 +11,26 @@
 </head>
 <body>
   
-    <div class="grid-cont">
+<div class = "card">
+    <form class="grid-cont" action="/data" method="POST">
        
-         <div class="item1 bg-danger">
+         <div class="item1 bg-danger card-header">
              <h1 class="heading">
                 <i class="fas fa-clipboard-list"></i> 
                 TODO LIST
             </h1>
              
          </div>
-
+     
+        
          <div class=" form-floating mb-3 item2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Enter the task">
+            <input type="text" class="form-control" id="floatingInput" name = "task" placeholder="Enter the task">
             <label for="floatingInput">Enter the task</label>
           </div>
          
          <div class=" item3">
-            <select class=" form-select" aria-label="Default select example">
-                <option selected>Choose a category</option>
+            <select class=" form-select" aria-label="Default select example" name = "select">
+                <option selected disabled>Choose a category</option>
                 <option value="1">Personal</option>
                 <option value="2">Work</option>
                 <option value="3">Sports</option>
@@ -37,21 +39,44 @@
          </div>
 
          <div class=" mb-3 item4">
-            <input type="date" class="form-control" id="floatingInput" placeholder="dd/mm/yyyy">
+            <input type="date" class="form-control" id="floatingInput" name = "date"placeholder="dd/mm/yyyy">
           </div>
 
          <div class="item5">
-            <button type="button" class="btn btn-success btn-lg">
+            <button type="submit" class="btn btn-success btn-lg">
                 <i class="fas fa-plus"></i>
                ADD TASK
             </button>
-            <button type="button" class="btn btn-danger btn-lg">
+            <a href = "/delete-contact/"><button type="button" class="btn btn-danger btn-lg">
                 <i class="far fa-trash-alt"></i>
                 DELETE TASKS
-            </button>
+            </button></a>
+         </div>
+  
+         <div class="item6 ">
+            <ul id = "list">
+                <% for(let i of list){ %>
+                     <li class="card">
+                        <span class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <label class="form-check-label" for="flexCheckChecked">
+                            </span>
+                         <span><%= i.text%></span>
+                         <div><%= i.select%></div>
+                         <div><%= i.date%></div>
+                        
+                          
+                         
+                         
+                         <!-- <a href = "/delete-contact/?id=<%= i._id%>"><i class= "fas fa-trash-alt"></i></a> -->
+                     </li>
+                <%}%>
+            </ul>
          </div>
 
-         <div></div>
+        </form>
+
+        
     </div>
 
 <!-- script -->

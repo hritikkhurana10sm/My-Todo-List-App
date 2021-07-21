@@ -1,4 +1,5 @@
 //require express
+const { urlencoded } = require('express');
 const express = require('express');
 const port = 8000;
 
@@ -11,6 +12,9 @@ app.set('views' , './views');
 
 //adding assets
 app.use(express.static('assets'));
+
+//used to bind the data comming from input 
+app.use(express.urlencoded());
 
 //adding middleware here
 app.use('/' , require('./routes/index'));

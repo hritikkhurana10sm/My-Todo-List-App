@@ -10,13 +10,14 @@
                          'text text text text text text'
                          'category category category date date date'
                          'butn butn butn butn butn butn'
-                          'task task task task task task';
+                          'task task task task task task'
+                          'print print print print print print';
     grid-gap: 10px;
     background-color: rgba(255, 0, 0, 0.048);
     padding: 4px;
     width: 70%;
     margin: auto;
-    margin-top: 5%;
+    margin-top: 3%;
     text-align: center;
 }
 
@@ -35,8 +36,15 @@
 .item5{
     grid-area: butn;
 }
+.item6{
+    grid-area: print;
+}
 
 .heading{
     font-weight: bolder;
     color: white;
+}
+
+ul{
+    padding : 0;
 }
