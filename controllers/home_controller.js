@@ -19,7 +19,7 @@ module.exports.home = function (req, res) {
     //rendering the page
     //home is ejs file here
     return res.render('home', {
-      'title': 'TODO List',
+      'title': 'TODO LIST',
       'list': list
     });
 
