@@ -1,23 +1,29 @@
+//require schema
 const Todo = require('../models/todo_list');
 
-module.exports.home = function(req , res){
-      
+//exporting this as we needed in its concerned router
+module.exports.home = function (req, res) {
 
-    console.log("rendering the home page");
-    
-    Todo.find({} , function(err , list){
-    
-      if(err){
+  //rendering the home page
+  console.log("rendering the home page");
 
-        console.log("uhh . erroer in route contriller home");
-        return;
-      }
-        return res.render('home' , {
-        'title'  : 'TODO List',
-        'list' : list
+  //this is used to find all the properties and pass that in ejs so as to render accordingly
+  Todo.find({}, function (err, list) {
+
+    //handling error
+    if (err) {
+      console.log("uhh . error in route controller home");
+      return;
+    }
+
+    //rendering the page
+    //home is ejs file here
+    return res.render('home', {
+      'title': 'TODO List',
+      'list': list
     });
 
-    });
+  });
 
 };
     //return res.end('<h1>This is Home Controller</h1>');

@@ -1,85 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title><%= title %></title>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- bootstrap CDN Link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>
+        <%= title %>
+    </title>
+    <!-- including css file -->
     <link rel="stylesheet" href="/css/home.css">
 </head>
+<!-- body -->
 <body>
-  
-<div class = "card">
-    <form class="grid-cont" action="/data" method="POST">
-       
-         <div class="item1 bg-danger card-header">
-             <h1 class="heading">
-                <i class="fas fa-clipboard-list"></i> 
-                TODO LIST
-            </h1>
+
+                 <!-- insert form -->
+    <div class="card container">
+        <form action="/data" method="POST">
              
-         </div>
-     
-        
-         <div class=" form-floating mb-3 item2">
-            <input type="text" class="form-control" id="floatingInput" name = "text" placeholder="Enter the task">
-            <label for="floatingInput">Enter the task</label>
-          </div>
-         
-         <div class=" item3">
-            <select class=" form-select" aria-label="Default select example" name = "option">
-                <option selected disabled>Choose a category</option>
-                <option value="1">Personal</option>
-                <option value="2">Work</option>
-                <option value="3">Sports</option>
-                <option value="3">Other</option>
-              </select>
-         </div>
+            <!-- form title -->
+            <div class="bg-danger card-header text-center">
+                <h1 class="heading">
+                    <i class="fas fa-clipboard-list"></i>
+                    TODO LIST
+                </h1>
+            </div>
 
-         <div class=" mb-3 item4">
-            <input type="date" class="form-control" id="floatingInput" name = "date"placeholder="dd/mm/yyyy">
-          </div>
+              <!-- enter the task   -->
+            <div class="form-floating mb-3 ">
+                <input type="text" class="form-control m-1" id="floatingInput" name="text" placeholder="Enter the task">
+                <label for="floatingInput">Enter the task</label>
+            </div>
+              
+            <!-- select category -->
+            <div class="flex">
+                <div class="flex-grow">
+                    <select class=" form-select" aria-label="Default select example" name="option">
+                        <option selected disabled>Choose a category</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Work">Work</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                 <!-- input date -->
+                <div style="flex-grow: 0.2;">
+                    <input type="date" class="form-control" id="floatingInput" name="date" placeholder="dd/mm/yyyy">
+                </div>
+            </div>
+            
+             <!-- add task button -->
+            <div class="text-center">
+                <button id="ft" type="submit" class="btn btn-block btn-success btn-lg m-4">
+                    <i class="fas fa-plus"></i>
+                    ADD TASK
+                </button>
 
-         <div class="item5">
-            <button type="submit" class="btn btn-success btn-lg">
-                <i class="fas fa-plus"></i>
-               ADD TASK
-            </button>
-            <a href = "/delete-contact/"><button type="button" class="btn btn-danger btn-lg">
-                <i class="far fa-trash-alt"></i>
-                DELETE TASKS
-            </button></a>
-         </div>
-  
-         <div class="item6 ">
-            <ul id = "list">
-                <% for(let i of list){ %>
-                     <li class="card">
-                        <span class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                            <label class="form-check-label" for="flexCheckChecked">
-                            </span>
-                         <span><%= i.text%></span>
-                         <div><%= i.select%></div>
-                         <div><%= i.date%></div>
-                        
-                          
-                         
-                         
-                         <!-- <a href = "/delete-contact/?id=<%= i._id%>"><i class= "fas fa-trash-alt"></i></a> -->
-                     </li>
-                <%}%>
-            </ul>
-         </div>
+            </div>
 
         </form>
 
-        
     </div>
+    
+                 <!-- delete form -->
+    <form action="/delete" method="GET">
+        
+        <!-- delete button -->
+        <div class=" text-center">
+            <button type="submit" class="btn btn-danger btn-lg m-2">
+                <i class="far fa-trash-alt"></i>
+                DELETE TASKS
+            </button>
+        </div>
 
-<!-- script -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <div class="my-1">
+
+            <!-- unordered list -->
+            <ul>
+                <% for(let i of list){ %>
+
+                    <li class="card my-3 list">
+
+                        <div class="form-check check">
+                            <input class="form-check-input mx-0" type="checkbox" name="<%=i._id%>" id="flexCheckChecked">
+                        </div>
+
+
+                        <div class="mx-3 my-3 tasks">
+
+                            <div class="box-title">
+                                <%= i.text%>
+                            </div>
+                            <div>
+                                <%= i.select%>
+                            </div>
+                            <div>
+                                <hr>
+                                <i class="far fa-calendar-plus"></i>
+                                <!-- <i class="fas fa-clipboard-list"></i> -->
+                                <%= i.date%>
+                            </div>
+
+                        </div>
+                      
+                        <!-- for batch -->
+                        <%if(i.option=="Personal" ){%>
+                            <div id="batch" class="personal">
+                                <%= i.option%>
+                            </div>
+                            <%}else if(i.option=="Work" ){%>
+                            <div id="batch" class = "work">
+                                <%= i.option%>
+                            </div>
+                            <%}else if(i.option=="Sports" ){%>
+                            <div id="batch" class="sport">
+                                <%= i.option%>
+                            </div>
+                            <%}else{%>
+                            <div id="batch" class="other">
+                                <%= i.option%>
+                            </div>
+                        <%}%>
+                    
+                    </li>
+               
+                <%}%>
+            </ul>
+        </div>
+
+    </form>
+
+    <!-- Bootstrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
 </body>
+
 </html>

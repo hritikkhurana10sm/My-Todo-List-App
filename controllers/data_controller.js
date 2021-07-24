@@ -1,26 +1,25 @@
-const db = require('../config/mongoose');
+//to require the schema
 const Todo = require('../models/todo_list');
 
-module.exports.data = function(req , res){
- 
-       console.log('data ******** ' , req.body);
-      
+//exporting the controller so as to use in its router 
+module.exports.data = function (req, res) {
+
+      //creating the object
       Todo.create({
 
-              text : req.body.text,
-              option : req.body.option,
-              date : req.body.date
-              
-      } , function(err , list){
+            text: req.body.text,
+            option: req.body.option,
+            date: req.body.date,
 
-         if(err){
-                console.log("error in creating the object");
-                return;
-         }
+      }, function (err, list) {
 
-         console.log('*/*/*/* ' , list);
+            if (err) {
+                  console.log("error in creating the object");
+                  return;
+            }
 
-         return res.redirect('back');
+            //returning back to initial point i.e '/'
+            return res.redirect('back');
       });
-       
+
 };

@@ -1,7 +1,8 @@
 //require express
-
 const express = require('express');
-const port = 800;
+
+//working on port 8000
+const port = 8000;
 
 //enabling the express
 const app = express();
@@ -13,16 +14,16 @@ app.set('views' , './views');
 //adding assets
 app.use(express.static('assets'));
 
-//used to bind the data comming from input 
+//used to bind the data comming from input (like req.body)
 app.use(express.urlencoded());
 
 //adding middleware here
 app.use('/' , require('./routes/index.js'));
 
-
+//requiring the database
 const db = require('./config/mongoose');
-// const Todo = require('./models/todo_list');
 
+//connecting to the port
 app.listen(port , function(err){
      if(err){
          console.log('Uhh..Server not running!!');
